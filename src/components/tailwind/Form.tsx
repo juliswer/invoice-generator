@@ -1,6 +1,4 @@
 import { type Note } from '@/common/types/notes.type'
-import { Button } from '@components/common/Button'
-import { DrawerR } from '@components/common/Drawer'
 import { saveNote } from '@/redux/features/app/actions/notes/saveNote/saveNote'
 import { updateNote } from '@/redux/features/app/actions/notes/updateNote/updateNote'
 import { useAppDispatch } from '@/redux/store/hooks/useAppDispatch'
@@ -10,6 +8,8 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FaSave } from 'react-icons/fa'
 import { findNotes } from '@/redux/features/app/actions/notes/findNotes/findNotes'
+import { DrawerR } from './Drawer'
+import { Button } from './Button'
 
 export function Form() {
   const dispatch = useAppDispatch()

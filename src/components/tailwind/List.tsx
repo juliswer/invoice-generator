@@ -1,8 +1,8 @@
 import { useAppDispatch } from '@/redux/store/hooks/useAppDispatch'
 import { useAppSelector } from '@/redux/store/hooks/useAppSelector'
-import { Item } from '@/components/common/Item'
 import { findNotes } from '@/redux/features/app/actions/notes/findNotes/findNotes'
 import { useEffect } from 'react'
+import { Item } from './Item'
 
 export function List() {
   const dispatch = useAppDispatch()

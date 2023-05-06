@@ -1,13 +1,15 @@
 import { type Note } from '@/common/types/notes.type'
-import { Avatar } from '@components/common/Avatar'
+
 import dayjs from 'dayjs'
 import { useAppDispatch } from '@/redux/store/hooks/useAppDispatch'
 import { findNoteById } from '@/redux/features/app/actions/notes/findNoteById/findNoteById'
 import { setIsOpenDrawer } from '@/redux/features/app/store/app.slice'
 import { useAppSelector } from '@/redux/store/hooks/useAppSelector'
-import { Button } from '@components/common/Button'
+
 import { FaPen } from 'react-icons/fa'
-import { Roles } from '@common/enums/roles.enum'
+import { Roles } from '@/common/enums/roles.enum'
+import { Avatar } from './Avatar'
+import { Button } from './Button'
 
 type Props = {
   note: Note

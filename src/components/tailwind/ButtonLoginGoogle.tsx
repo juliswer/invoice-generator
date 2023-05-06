@@ -4,8 +4,8 @@ import { useAppSelector } from '@/redux/store/hooks/useAppSelector'
 import { openToastError } from '@/redux/store/ui/ui.slice'
 import { useGoogleLogin } from '@react-oauth/google'
 import { FaGoogle } from 'react-icons/fa'
-import { Button } from '@components/common/Button'
-import { SpinnerContainer } from '@components/common/SpinnerContainer'
+import { SpinnerContainer } from './SpinnerContainer'
+import { Button } from './Button'
 
 export function ButtonLoginGoogle() {
   const { isLoading } = useAppSelector((state) => state.auth)

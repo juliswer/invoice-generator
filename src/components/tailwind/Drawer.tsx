@@ -1,9 +1,9 @@
-import { Button } from '@components/common/Button'
 import { setIsOpenDrawer } from '@/redux/features/app/store/app.slice'
 import { useAppDispatch } from '@/redux/store/hooks/useAppDispatch'
 import { useAppSelector } from '@/redux/store/hooks/useAppSelector'
 import { type ReactNode } from 'react'
 import Drawer from 'react-modern-drawer'
+import { Button } from './Button'
 
 type Props = {
   openMsg: string

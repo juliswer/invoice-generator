@@ -2,6 +2,7 @@
   "extends": ["next/core-web-vitals", "plugin:sonarjs/recommended"],
   "plugins": ["sonarjs", "@typescript-eslint", "prettier"],
   "parser": "@typescript-eslint/parser",
+  "env": { "jest": true },
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
