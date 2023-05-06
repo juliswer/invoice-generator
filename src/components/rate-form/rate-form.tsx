@@ -4,7 +4,7 @@ import { Button } from '../tailwind/Button'
 import { useForm } from 'react-hook-form'
 import { RateFormType } from '@/common/types/RateForm.type'
 import { ErrorMessage } from '@hookform/error-message'
-import { getPaymentAmount } from '@/common/utils/getPaymentAmount.util'
+import { getPaymentAmount } from '@/common/utils/getPaymentAmount/getPaymentAmount.util'
 import { useAppDispatch } from '@/redux/store/hooks/useAppDispatch'
 import { setPaymentAmount } from '@/redux/features/app/store/app.slice'
 
