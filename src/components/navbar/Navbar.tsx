@@ -10,15 +10,15 @@ export function Navbar() {
           </span>
         </Link>
       </div>
-      <div className="flex-none">
-        <ul className="menu menu-vertical md:menu-horizontal md:px-1">
-          <li>
-            <Link href="/amount">
+      <div className="flex-none gap-2">
+        <ul className="menu menu-vertical md:menu-horizontal md:px-1 gap-2">
+          <li className="">
+            <Link href="/amount" style={{ borderRadius: '20px' }}>
               <span className="font-bold md:font-xl font-lg">Get Amount</span>
             </Link>
           </li>
           <li>
-            <Link href="/compare">
+            <Link href="/compare" style={{ borderRadius: '20px' }}>
               <span className="font-bold text-md md:font-xl">
                 Compare Addresses
               </span>
