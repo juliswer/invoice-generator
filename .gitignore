@@ -4,3 +4,4 @@ yarn.lock
 .next
 .eslintignore
 next-env.d.ts
+.DS_Store
