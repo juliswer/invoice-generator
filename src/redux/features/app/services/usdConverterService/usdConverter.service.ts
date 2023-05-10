@@ -10,25 +10,30 @@ export default class UsdConverterService
 
   constructor() {
     super()
-    this.endpoint =
-      'https://www.dolarsi.com/api/api.php?type=valoresprincipales'
+    this.endpoint = 'https://api.bluelytics.com.ar/v2/latest'
   }
 
   async getArsFromUsd(dollars: number) {
-    const dollarName = 'Dolar Blue'
-    const { data } = await this.instance.get<usdConverterResponse[]>(
+    const { data } = await this.instance.get<usdConverterResponse>(
       this.endpoint
     )
-    const blue = data.find((i) => i.casa.nombre === dollarName)
-    console.log({ blue })
 
-    return dollars
+    const {
+      blue: { value_sell }
+    } = data
+
+    return dollars * value_sell
   }
 
   async getUsdValueFromArs() {
-    const { data } = await this.instance.get<usdConverterResponse[]>(
+    const { data } = await this.instance.get<usdConverterResponse>(
       this.endpoint
     )
+    const {
+      blue: { value_sell }
+    } = data
+
+    return value_sell
   }
 }
 

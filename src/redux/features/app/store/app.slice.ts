@@ -13,6 +13,7 @@ export interface AppState {
   isOpenDrawer: boolean
   paymentAmount: number
   paymentInArs: null | number
+  dollarToArsValue: null | number
 }
 
 export const initialAppState: AppState = {
@@ -23,7 +24,8 @@ export const initialAppState: AppState = {
   isLoading: false,
   isOpenDrawer: false,
   paymentAmount: 0,
-  paymentInArs: null
+  paymentInArs: null,
+  dollarToArsValue: null
 }
 
 export const appSlice = createSlice({
