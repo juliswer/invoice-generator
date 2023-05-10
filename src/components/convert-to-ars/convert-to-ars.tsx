@@ -7,13 +7,11 @@ import { Loading } from '../tailwind/Loading'
 import { Button } from '../tailwind/Button'
 
 export function ConvertToArs() {
-  const { paymentAmount, isLoading, paymentInArs } = useAppSelector(
-    (state) => state.app
-  )
+  const { paymentAmount, isLoading } = useAppSelector((state) => state.app)
   const dispatch = useAppDispatch()
 
   const handleUsdToArs = async () => {
-    await dispatch(usdToArs(paymentAmount))
+    await dispatch(usdToArs(paymentAmount.usd))
   }
 
   return (
@@ -26,9 +24,9 @@ export function ConvertToArs() {
       >
         {isLoading ? 'Converting' : 'Convert to ARS'}
       </Button>
-      {!!paymentInArs && (
+      {!!paymentAmount.ars && (
         <h2 className="text-success text-center font-bold text-2xl mt-4">
-          ${paymentInArs} ARS
+          ${paymentAmount.ars} ARS
         </h2>
       )}
     </div>

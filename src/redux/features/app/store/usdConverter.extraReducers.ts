@@ -15,7 +15,7 @@ export function usdConverterExtraReducers(
   })
   builder.addCase(usdToArs.fulfilled, (state, { payload }) => {
     state.isLoading = false
-    state.paymentInArs = payload
+    state.paymentAmount.ars = payload
   })
   builder.addCase(usdToArs.rejected, (state) => {
     state.isLoading = false

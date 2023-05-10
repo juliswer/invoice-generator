@@ -19,12 +19,6 @@ export default function Page() {
       </div>
       <PaymentAmount />
 
-      {!!paymentAmount && (
-        <div className="flex items-center justify-center">
-          <ConvertToArs />
-        </div>
-      )}
-
       <div className="flex items-center justify-center mt-10 flex-col">
         <h2 className="text-center text-3xl font-extrabold mb-10">
           Compare Addresses
