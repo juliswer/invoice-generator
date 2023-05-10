@@ -7,15 +7,16 @@ import { ErrorMessage } from '@hookform/error-message'
 import { getPaymentAmount } from '@/common/utils/getPaymentAmount/getPaymentAmount.util'
 import { useAppDispatch } from '@/redux/store/hooks/useAppDispatch'
 import { setPaymentAmount } from '@/redux/features/app/store/app.slice'
+import { usdToArs } from '@/redux/features/app/actions/usdConverter/usdToArs/usdToArs'
+import { useAppSelector } from '@/redux/store/hooks/useAppSelector'
 
 export function RateForm() {
+  const { isLoading } = useAppSelector((state) => state.app)
   const dispatch = useAppDispatch()
 
   const {
     register,
     handleSubmit,
-    reset,
-    setError,
     formState: { errors, isValid }
   } = useForm<RateFormType>({
     defaultValues: {},
@@ -26,6 +27,7 @@ export function RateForm() {
     const payment = getPaymentAmount(rateFormData)
 
     dispatch(setPaymentAmount(payment))
+    dispatch(usdToArs(payment))
   }
 
   return (
@@ -76,8 +78,14 @@ export function RateForm() {
         name="minutes"
         render={({ message }) => <p className="text-red-600">{message}</p>}
       />
-      <Button color="success" type="submit" size="lg" disabled={!isValid}>
-        Calculate
+      <Button
+        color="success"
+        type="submit"
+        size="lg"
+        disabled={!isValid}
+        extra={`${isLoading && 'loading'}`}
+      >
+        {isLoading ? 'Calculating' : 'Calculate'}
       </Button>
     </form>
   )

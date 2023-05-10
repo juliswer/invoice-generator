@@ -11,8 +11,10 @@ export interface AppState {
   filters: FilterBase
   isLoading: boolean
   isOpenDrawer: boolean
-  paymentAmount: number
-  paymentInArs: null | number
+  paymentAmount: {
+    usd: number
+    ars: number
+  }
   dollarToArsValue: null | number
 }
 
@@ -23,8 +25,10 @@ export const initialAppState: AppState = {
   filters: { limit: 100, page: 1, search: '' },
   isLoading: false,
   isOpenDrawer: false,
-  paymentAmount: 0,
-  paymentInArs: null,
+  paymentAmount: {
+    usd: 0,
+    ars: 0
+  },
   dollarToArsValue: null
 }
 
@@ -39,7 +43,7 @@ export const appSlice = createSlice({
       state.note = payload
     },
     setPaymentAmount: (state, { payload }: { payload: number }) => {
-      state.paymentAmount = payload
+      state.paymentAmount.usd = payload
     }
   },
   extraReducers: (builder) => {
