@@ -17,6 +17,7 @@ export function RateForm() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isValid }
   } = useForm<RateFormType>({
     defaultValues: {},
@@ -24,6 +25,20 @@ export function RateForm() {
   })
 
   const onSubmit = async (rateFormData: RateFormType) => {
+    if (rateFormData.minutes === 0 && rateFormData.hours === 0) {
+      if (rateFormData.minutes === 0) {
+        setError('minutes', {
+          message: 'Choose a valid time'
+        })
+      }
+      if (rateFormData.hours === 0) {
+        setError('hours', {
+          message: 'Choose a valid time'
+        })
+      }
+      return
+    }
+
     const payment = getPaymentAmount(rateFormData)
 
     dispatch(setPaymentAmount(payment))
@@ -40,7 +55,11 @@ export function RateForm() {
         className="input w-full"
         placeholder="Rate"
         {...register('rate', {
-          required: 'Rate is required'
+          required: 'Rate is required',
+          min: {
+            value: 1,
+            message: 'You must enter a number higher or equal to 1'
+          }
         })}
       />{' '}
       <ErrorMessage
@@ -79,7 +98,7 @@ export function RateForm() {
         render={({ message }) => <p className="text-red-600">{message}</p>}
       />
       <Button
-        color="success"
+        color="primary"
         type="submit"
         size="lg"
         disabled={!isValid}

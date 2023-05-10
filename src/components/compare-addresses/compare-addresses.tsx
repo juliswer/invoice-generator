@@ -28,13 +28,13 @@ export function CompareAddresses() {
   }
 
   return (
-    <div>
+    <div className="w-full md:w-5/12 p-4 md:p-0">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="w-full">
-          <div className="flex gap-5">
+          <div className="flex flex-col md:flex-row gap-5">
             <input
               type="text"
-              className="input"
+              className="input w-full"
               placeholder="First Address"
               {...register('address1', {
                 required: 'First Address is required'
@@ -42,7 +42,7 @@ export function CompareAddresses() {
             />
             <input
               type="text"
-              className="input"
+              className="input w-full"
               placeholder="Second Address"
               {...register('address2', {
                 required: 'Second Address is required'
@@ -51,7 +51,7 @@ export function CompareAddresses() {
           </div>
           <Button
             size="lg"
-            color="info"
+            color="primary"
             type="submit"
             extra="mt-10 w-full"
             disabled={!isValid}
