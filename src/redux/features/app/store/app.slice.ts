@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { notesExtraReducers } from '@/redux/features/app/store/notes.extraReducers'
+import { usdConverterExtraReducers } from '@/redux/features/app/store/usdConverter.extraReducers'
 import { type FilterBase } from '@/common/types/filterBase.types'
 import { Note } from '@/common/types/notes.type'
 
@@ -11,6 +12,8 @@ export interface AppState {
   isLoading: boolean
   isOpenDrawer: boolean
   paymentAmount: number
+  paymentInArs: null | number
+  dollarToArsValue: null | number
 }
 
 export const initialAppState: AppState = {
@@ -20,7 +23,9 @@ export const initialAppState: AppState = {
   filters: { limit: 100, page: 1, search: '' },
   isLoading: false,
   isOpenDrawer: false,
-  paymentAmount: 0
+  paymentAmount: 0,
+  paymentInArs: null,
+  dollarToArsValue: null
 }
 
 export const appSlice = createSlice({
@@ -39,6 +44,7 @@ export const appSlice = createSlice({
   },
   extraReducers: (builder) => {
     notesExtraReducers(builder)
+    usdConverterExtraReducers(builder)
   }
 })
 
