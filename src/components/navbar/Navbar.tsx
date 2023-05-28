@@ -18,6 +18,13 @@ export function Navbar() {
             </Link>
           </li>
           <li>
+            <Link href="/percentage" style={{ borderRadius: '20px' }}>
+              <span className="font-bold text-md md:font-xl">
+                Calculate Percentage
+              </span>
+            </Link>
+          </li>
+          <li>
             <Link href="/compare" style={{ borderRadius: '20px' }}>
               <span className="font-bold text-md md:font-xl">
                 Compare Addresses

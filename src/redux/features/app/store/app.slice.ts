@@ -3,6 +3,7 @@ import { notesExtraReducers } from '@/redux/features/app/store/notes.extraReduce
 import { usdConverterExtraReducers } from '@/redux/features/app/store/usdConverter.extraReducers'
 import { type FilterBase } from '@/common/types/filterBase.types'
 import { Note } from '@/common/types/notes.type'
+import { percentageCalculatorExtraReducers } from '@/redux/features/app/store/percentageCalculator.extraReducers'
 
 export interface AppState {
   note: Note
@@ -16,6 +17,10 @@ export interface AppState {
     ars: number
   }
   dollarToArsValue: null | number
+  percentageAmount: {
+    percentage: number
+    finalAmount: number
+  }
 }
 
 export const initialAppState: AppState = {
@@ -29,7 +34,11 @@ export const initialAppState: AppState = {
     usd: 0,
     ars: 0
   },
-  dollarToArsValue: null
+  dollarToArsValue: null,
+  percentageAmount: {
+    percentage: 0,
+    finalAmount: 0
+  }
 }
 
 export const appSlice = createSlice({
@@ -49,6 +58,7 @@ export const appSlice = createSlice({
   extraReducers: (builder) => {
     notesExtraReducers(builder)
     usdConverterExtraReducers(builder)
+    percentageCalculatorExtraReducers(builder)
   }
 })
 
