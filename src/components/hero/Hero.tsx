@@ -12,6 +12,11 @@ export default function Hero() {
             Get Amount from Rate
           </Button>
         </Link>
+        <Link href="/percentage">
+          <Button color="error" size="lg">
+            Calculate Percentage
+          </Button>
+        </Link>
         <Link href="/compare">
           <Button color="secondary" size="lg">
             Compare Addresses
