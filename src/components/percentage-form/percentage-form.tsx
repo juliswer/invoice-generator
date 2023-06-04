@@ -36,6 +36,7 @@ export default function PercentageForm() {
           <input
             type="number"
             className="input w-full"
+            step={0.01}
             placeholder="Percentage"
             {...register('percentage', {
               required: 'Percentage is required',
