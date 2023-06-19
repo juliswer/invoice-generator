@@ -42,7 +42,8 @@ export function RateForm() {
     const payment = getPaymentAmount(rateFormData)
 
     dispatch(setPaymentAmount(payment))
-    dispatch(usdToArs(payment))
+
+    if (payment) dispatch(usdToArs(payment))
   }
 
   return (
